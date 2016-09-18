@@ -6,10 +6,23 @@
     </head>
     <body>
         <script>
-            for (haha in document){
-                console.log(document[haha])
-            }
+            var introduce = '';
+            var numbering = '';
+            var me = {};
+            me.name = '이승하';
+            me.age = 24;
+            me.email = 'lsh41319kr@naver.com'
+            me.like = ['농구','축구','게임']
             
+            var lsh = [];
+            var s = function () {
+                for(introduce in me) {
+                    numbering += introduce + ":" + me[introduce];
+                    numbering += "<br />";
+                }
+                return document.write(numbering);
+            };
+            s();
         </script>
     </body>
 </html>
