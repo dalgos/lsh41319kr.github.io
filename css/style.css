@@ -1,0 +1,198 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* start */
+html {text-align: center;}
+body {display: inline-block;width: 95%;font-size: 16px; padding-left:5%; max-width: 1920px;}
+/* navigation */
+nav {position: fixed;background-color: #FFF;width: 90%;margin-left: -90%;z-index: 10;border-right: 1px solid #cccccc;}/* margin-left값( -90% ) 조정 */
+nav div.wrp {position: relative;}
+nav div.wrp > span.logo {position: absolute;top: 20px;right: 20px;}
+nav div.wrp > span.logo > a {display: inline-block;}
+@keyframes carousel {
+	0% {-webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	100% {-webkit-transform: rotateY(360deg); transform: rotateY(360deg);}
+}
+nav div.wrp > span.logo > a > img {
+	width: 40px;
+	animation-name:carousel;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+nav div.wrp > div.btn_menu {position: absolute;right: -25px;top: 47%;}
+nav div.wrp > div.btn_menu a {
+	position: relative;
+    display: block;width: 50px; height: 50px;
+    background-color: black;border-radius: 50px;
+    cursor: pointer;cursor: pointer;
+}
+nav div.wrp > div.btn_menu > a > div.menu_btn {
+    display: block;width: 100%;height: 100%;
+}
+nav div.wrp > div.btn_menu > a > div.menu_btn > span.bar {
+	position: absolute;top: 0;left: 0;right: 0;margin: 0 auto;
+	display: inline-block;width: 50%;height: 2px;font-size: 0;color: transparent;text-indent: -9999px;background-color: #fff;
+}
+nav div.wrp > div.btn_menu > a > div.menu_btn > span.bar:first-child {top: 33%;}
+nav div.wrp > div.btn_menu > a > div.menu_btn > span.bar:last-child {top: 65%;}
+nav div.wrp > p {
+    position: absolute; right: 2%;bottom: 5%;
+    color: #999999;font-size: 14px;
+    -webkit-writing-mode: vertical-rl;
+	-moz-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-ms-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
+}
+/* menu_txt */
+nav div.wrp > div.menu_wrp {display: block;float: left;}
+nav div.wrp > div.menu_wrp > ul.menu {position: absolute;bottom: 10%;left: 5%;}
+nav div.wrp > div.menu_wrp > ul.menu li {text-align: left;padding: 10px 0;}
+nav div.wrp > div.menu_wrp > ul.menu li a {font-size: 32px;padding: 0 20px;line-height: 32px;font-weight: bold;color: #666666;cursor: pointer;}
+/* menu_img */
+nav div.wrp > div.menu_img_wrp {position: absolute;right: 15%;top: 10%; display: block;width: 45%;}
+nav div.wrp > div.menu_img_wrp ul.menu_img {position: relative;}
+nav div.wrp > div.menu_img_wrp ul.menu_img li {position: absolute;top: 0; left: 0;width: 100%;}
+nav div.wrp > div.menu_img_wrp ul.menu_img li img {width: 100%;}
+nav div.wrp > div.menu_img_wrp ul.menu_img li:first-child img {opacity: 1;}
+nav div.wrp > div.menu_img_wrp ul.menu_img li:nth-child(2) img {opacity: 0}
+nav div.wrp > div.menu_img_wrp ul.menu_img li:nth-child(3) img {opacity: 0}
+nav div.wrp > div.menu_img_wrp ul.menu_img li:nth-child(4) img {opacity: 0}
+nav div.wrp > div.menu_img_wrp ul.menu_img li:last-child img {opacity: 0}
+
+/* section */
+section {}
+/* article title */
+article.title_wrp {width: 100%;height: 794px;display: table;}
+article.title_wrp > div.table {position: relative;display: table-cell;vertical-align: middle;}
+article.title_wrp > div.table > div.table_cell {}
+article.title_wrp > div.table > div.table_cell > div.text_wrp_titlebar {position: fixed;top: 40%; left: 21.6%; width: 0%;height: 140px; text-align: left;margin: 0 auto;padding-left: 5%;background-color: #121217;overflow: hidden;}
+article.title_wrp > div.table > div.table_cell > div.text_wrp_titlebar > h1 {color: #fff;font-size: 2em;margin-top: 150px;}/* margin-top 40px */
+article.title_wrp > div.table > div.table_cell > div.text_wrp_titlebar > p {color: #fff;font-size: 0.8em;margin-top: 10px;}
+article.title_wrp > div.table > div.scroll_mouse {position: absolute;bottom: 5%;left: 47%;display: block;width: 3%;height: 40px;overflow: hidden;}
+article.title_wrp > div.table > div.scroll_mouse > img {width: 100%;margin-top: 150px;}
+/* article video */
+article.video_wrp {position: relative;width: 100%;height: 794px;}
+article.video_wrp > div.video {position: relative;display: inline-block;width: 65%;height: 90%;margin-top: 2.5%;overflow: hidden;}
+article.video_wrp > div.video > img {position: relative;width: 100%;height: 100%;opacity: 0; z-index: 3;}
+article.video_wrp > div.video > div.video_bg {
+	position: absolute;top: 0;left: 0;width: 100%;height: 100%;
+	font-size: 0;color: transparent;text-indent: -99999px;
+	margin-top: 100%;background-color: #121217;z-index: 2;
+}/* opacity 나중에 지움 */
+/* composer bar */
+article.video_wrp > div.composerbar_container {position: absolute;left: 0;right: 0;bottom: 0;text-align: center;}/* bottom 조정 animate , z-index */
+article.video_wrp > div.composerbar_container > div.composerbar_wrp {display: inline-block;width: 60%;height: 140px;padding-left: 5%;background-color: #121217;}
+article.video_wrp > div.composerbar_container > div.composerbar_wrp > div.text_wrp_composerbar {text-align: left;}
+article.video_wrp > div.composerbar_container > div.composerbar_wrp > div.text_wrp_composerbar > h1 {color:#fff;font-size: 2em;margin-top: 40px;}
+article.video_wrp > div.composerbar_container > div.composerbar_wrp > div.text_wrp_composerbar > p {color:#fff;font-size: 0.8em;margin-top: 10px;}
+/* article composer */
+article.composer_contain {position: relative;width: 100%;height: 794px;}
+article.composer_contain > div.composer_wrp {position: relative;display: inline-block;width: 65%;height: 90%;margin-top: 2.5%;}
+article.composer_contain > div.composer_wrp > div.composer {margin-top: 130px;}
+article.composer_contain > div.composer_wrp > div.composer > h3 {font-size: 1em;color: #999999;}
+article.composer_contain > div.composer_wrp > div.composer > h2 {font-size: 3em;}
+article.composer_contain > div.composer_wrp > div.composer > div.composer_text_wrp {}
+article.composer_contain > div.composer_wrp > div.composer > div.composer_text_wrp > p {}
+article.composer_contain > div.composer_wrp > div.composer_bg {position: absolute;top: 0;left: 0;width: 100%;height: 100%; background-color: #121217;opacity: 0.3;}/* opacity 조정 */
+article.composer_contain > div.composer_wrp > div.composer_img {position: absolute;bottom: 0;right: 0;}
+article.composer_contain > div.composer_wrp > div.composer_img > img {}
+/* OST bar */
+article.composer_contain > div.ostbar_container {position: absolute;left: 0;right: 0;bottom: 0;text-align: center;}/* bottom 조정 animate , z-index */
+article.composer_contain > div.ostbar_container > div.ostbar_wrp {display: inline-block;width: 60%;height: 140px;padding-left: 5%;background-color: #121217;}
+article.composer_contain > div.ostbar_container > div.ostbar_wrp > div.text_wrp_ostbar {text-align: left;}
+article.composer_contain > div.ostbar_container > div.ostbar_wrp > div.text_wrp_ostbar > h1 {color:#fff;font-size: 2em;margin-top: 40px;}
+article.composer_contain > div.ostbar_container > div.ostbar_wrp > div.text_wrp_ostbar > p {color:#fff;font-size: 0.8em;margin-top: 10px;}
+/* anotherOst */
+article.another_ost_container {position: relative;width: 100%;height: 1200px; text-align: center;}
+article.another_ost_container > div.animation_title {display: inline-block;height: 100%;}
+article.another_ost_container > div.animation_title > h1 {
+	font-size: 5em;height: 100%;
+	-webkit-writing-mode: vertical-rl;
+	-moz-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-ms-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
+}
+article.another_ost_container > div.bubble_container {position: absolute;top: 0; left: 0;right: 0;display: table; width: 100%; margin: 0 auto;text-align: center;}
+article.another_ost_container > div.bubble_container > div.bubble_wrp1 {position: relative;display: inline-block;width: 80%;height: 1200px;border:1px solid rgba(236,236,236,1);border-radius: 1200px;}
+article.another_ost_container > div.bubble_container > div.bubble_wrp1 > div.bubble_wrp2 {position: absolute;top:25%;left: 25%; display: inline-block;width: 50%;height: 600px;border:1px solid rgba(236,236,236,1);border-radius: 600px;}
+article.another_ost_container > div.bubble_container > div.bubble_wrp1 > div.bubble_wrp2  > div.bubble_wrp3 {position: absolute;top: 25%;left: 25%; display: inline-block;width: 50%;height: 300px;border: 1px solid rgba(236,236,236,1);border-radius: 300px;}
+article.another_ost_container > div.bubble_container > div.bubble_wrp1 > div.bubble_wrp2  > div.bubble_wrp3 > div.bubble_wrp4 {position: absolute;top: 25%;left: 25%;display: inline-block;width: 50%;height: 150px;border: 1px solid rgba(236,236,236,1); border-radius: 150px;}
+article.another_ost_container > div.bubble_container > div.bubble_wrp1 > div.bubble_wrp2  > div.bubble_wrp3 > div.bubble_wrp4 > div.bubble_wrp5{position: absolute;top: 25%;left: 25%;display: inline-block;width: 50%;height: 75px;font-size: 0;color: transparent;text-indent: -99999px;background-color: rgba(236,236,236,0.6);border-radius: 75px;}
+/* bubble contents */
+/* bubble 1 */
+/* ========= 버블의 크기값은 px로 지정하고 width값이 일정수준이상 줄어들면 list형태로 변경 ========= */
+article.another_ost_container > div.bubble_contents_container {position: absolute;top: 0; left: 0;right: 0;width: 100%;text-align: center;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp {display: inline-block;width: 30%;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 {position: relative;display: inline-block;width: 100%;height: 450px;color: red; border:1px solid red;border-radius: 320px;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 {position: absolute;top: 10%;left: 10%;display: inline-block;width: 80%;height: 361px;border:1px solid red; border-radius: 361px;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 {position: absolute;top: 0%;left: 0%; display: inline-block;width: 100%;height: 361px;border:1px solid red; border-radius: 361px;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 {position: absolute;top: 0%;left: 0%;display: inline-block;width: 100%;height: 361px; border:1px solid red; border-radius: 361px;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 > div.bubble1_wrp_5 {position: absolute;top: 10%;left: 10%;display: inline-block;width: 80%;height: 289px;color: red; border:1px solid red;border-radius: 320px;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 > div.bubble1_wrp_5 > div.bubble_table {display: table;width: 100%; height: 100%;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 > div.bubble1_wrp_5 > div.bubble_table > a {display: table-cell;vertical-align: middle;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 > div.bubble1_wrp_5 > div.bubble_table > a > h2 {font-size: 2em;}
+article.another_ost_container > div.bubble_contents_container > div.bubble_contents_wrp > div.bubble1_wrp_1 > div.bubble1_wrp_2 > div.bubble1_wrp_3 > div.bubble1_wrp_4 > div.bubble1_wrp_5 > div.bubble_table > a > p {font-size: 1em;}
+
+
+/* animation list */
+section.animation_screen {}
+section.animation_screen > article.animation_container {display: inline-block;width: 60%;}
+section.animation_screen > article.animation_container > div.animation_wrp {}
+section.animation_screen > article.animation_container > div.animation_wrp > ul {}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list {position: relative;display: block;float: left;width: 50%;}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a {}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a > img {width: 100%;}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color:rgba(114,117,127,0.2);}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > h3 {font-size: 1.2em}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > h2 {font-size: 1.5em;}
+section.animation_screen > article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > span {font-size: 1em;}
+
+
+
+
+
+
+
