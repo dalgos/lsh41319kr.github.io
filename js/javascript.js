@@ -1,3 +1,4 @@
+/* ================= scrollUp & Down ================= */
 /* ================= GNB Function ================= */
 //navBtnClick animation
 var navBtnClick = function(){
@@ -85,9 +86,14 @@ var $appearanceAnimation = function(){
 /* ================= Title Function ================= */
 var isHalf = true
 var $dd = function(){
-	var $titleH = $('.title_wrp_bar_bg').height();
-	var $videoH = $('.video_wrp_bg').height();
-	if($scrolly > $titleH / 2 && $scrolly < $titleH + ($videoH / 2)){
+		var $titleH = $('.title_wrp_bar_bg').height(),
+		var $videoH = $('.video_wrp_bg').height(),
+		var $composerBarH = $('.composer_wrp_bar_bg').height(),
+		var $composerH = $('.composer_wrp_bg').height(),
+		var $ostBarH = $('.ost_wrp_bg_bar').height(),
+		var $ostH = $('.ost_wrp_bg_').height()
+	console.log(typeof(wholeHight.$composerBarH))
+	if($scrolly > $titleH / 2 && $scrolly < $titleH + (wholeHight.$videoH / 2)){
 		if(isHalf){
 			// ============ Qusetion isHalf가 true라는 조건을 걸어 놓으면 =============================
 			$('.title_bar').animate({
@@ -104,7 +110,7 @@ var $dd = function(){
 			isHalf = false;
 		}
 	}
-	else if ($scrolly >= $titleH + ($videoH / 2))
+	else if ($scrolly >=  wholeHight.$titleH + (wholeHight.$videoH / 2) && $scrolly < wholeHight.$titleH + wholeHight.$videoH + (wholeHight.$composerBarH / 2))
 	{	
 		isHalf =true;
 		if(isHalf){
@@ -120,19 +126,32 @@ var $dd = function(){
 				$('.title_bar').children('h1').text('composer')
 				$('.title_bar').children('p').text('작곡가')	
 			});
+			console.log('gogo')
 			isHalf = false;
 		}
 	}
 }
 // when? scroll
+var scrollPosition = $(window).scrollTop(); //Question scrollPosition과 $scrolly은 똑같이 $(window).scrollTop();을 담았는데 왜 값이 차이가 날까요?
 $(window).scroll(function(){
+	//scroll UP & Down
+	if ($scrolly > scrollPosition){
+		console.log('scrollPosition' + scrollPosition + ' ' + '$scrolly' + $scrolly)
+		$('#body').addClass('scroll_down')
+		$('#body').removeClass('scroll_up')
+	}
+	else {
+		console.log('scrollPosition' + scrollPosition + ' ' + '$scrolly' + $scrolly)
+		$('#body').addClass('scroll_up')
+		$('#body').removeClass('scroll_down')
+	}
+	scrollPosition = $scrolly;
+	//scroll UP & Down End
 	$scrolly = $(window).scrollTop();
 	$windowy = $(window).height();
-	console.log("windowy" + ":" + $windowy + " " +  "scrolly" + ":" +  $scrolly)
 	
 	$dd();
 	$appearanceAnimation();
-	console.log(isHalf)
 })
 // when? resize
 $(window).resize(function(){
