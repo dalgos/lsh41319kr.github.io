@@ -74,7 +74,10 @@ var $appearanceAnimation = function(){
 	if ($scrolly != 0){
 		if (beHalf)
 			{
-				$('.title_bar').stop().animate({marginTop : '0%'},300)	
+				$('.title_bar').animate({
+					marginTop : '0%',
+					opacity : '1'
+				},300)	
 			}
 		beHalf = false;
 	}
@@ -82,17 +85,43 @@ var $appearanceAnimation = function(){
 /* ================= Title Function ================= */
 var isHalf = true
 var $dd = function(){
-	if($scrolly > $windowy / 2){
+	var $titleH = $('.title_wrp_bar_bg').height();
+	var $videoH = $('.video_wrp_bg').height();
+	if($scrolly > $titleH / 2 && $scrolly < $titleH + ($videoH / 2)){
 		if(isHalf){
+			// ============ Qusetion isHalf가 true라는 조건을 걸어 놓으면 =============================
+			$('.title_bar').animate({
+				marginTop : '-100%',
+				opacity : '0'
+			},200)// ====== .title_bar의 걸어 놓은 애니메이션이 작동하지 않습니다. isHalf에 대한 조건이 없으면 정상 작동 하고 이 상태를 cosole에서 애니메이션을 걸어도 정상 작동합니다.
 			$('.container').css({
 				zIndex : '3',
 				position : 'absolute',
 				top : '100%'
-			}).stop().animate({top : '1250px'},200,function(){
-				$('.container_inner').load("video.html #video").animate({height : '585px'},300)
+			}).animate({top : '1250px'},200,function(){
+			$('.container_inner').load("video.html #video").animate({height : '585px'},300)
 			});
+			isHalf = false;
 		}
-	isHalf= false;
+	}
+	else if ($scrolly >= $titleH + ($videoH / 2))
+	{	
+		isHalf =true;
+		if(isHalf){
+			$('.title_bar').animate({
+				marginTop : '0%',
+				opacity : '1'
+			},200)
+			$('.container').css({
+			position : 'fixed',
+			top : '50%'
+			})
+			$('.container_inner').load("index.html .title_bar").animate({height : "165px"},function(){
+				$('.title_bar').children('h1').text('composer')
+				$('.title_bar').children('p').text('작곡가')	
+			});
+			isHalf = false;
+		}
 	}
 }
 // when? scroll
@@ -103,6 +132,7 @@ $(window).scroll(function(){
 	
 	$dd();
 	$appearanceAnimation();
+	console.log(isHalf)
 })
 // when? resize
 $(window).resize(function(){
