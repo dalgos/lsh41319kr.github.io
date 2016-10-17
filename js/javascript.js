@@ -1,4 +1,3 @@
-/* ================= scrollUp & Down ================= */
 /* ================= GNB Function ================= */
 //navBtnClick animation
 var navBtnClick = function(){
@@ -91,12 +90,11 @@ var $dd = function(){
 		var $composerBarH = $('.composer_wrp_bar_bg').height();
 		var $composerH = $('.composer_wrp_bg').height();
 		var $ostBarH = $('.ost_wrp_bg_bar').height();
-		var $ostH = $('.ost_wrp_bg_').height();
 	if($('#body').hasClass('scroll_down')){
 		if($scrolly > $titleH / 2 && $scrolly < $titleH + ($videoH / 2)){
 			if(isHalf){
 				//console.log('gogo1') // ============ Question 이 조건문에서는 원하는대로 한번만 실행되지만 아래 esle if 부분에서는 여러번 실행이됩니다. 왜그런걸까요? ===========
-				//if문의 조건을 다르게 해서 한번만 작동하게 하게 하였는데 이유는 대충 유추 할수있지만 명확히 모르겠습니다. 문제는 새로고침을 한다면 제대로 작동하지 않는 부분이 생깁니다. 
+				//if문의 조건을 다르게 해서 한번만 작동하게 하게 하였는데 이유는 대충 유추 할수있지만 명확히 모르겠습니다. 문제는 새로고침을 한다면 제대로 작동하지 않는 부분이 생깁니다.
 				// ============ Qusetion isHalf가 true라는 조건을 걸어 놓으면 =============================
 				$('.title_bar').animate({
 					marginTop : '-100%',
@@ -132,7 +130,6 @@ var $dd = function(){
 		}
 		else if ($scrolly >= $titleH + $videoH + ($composerBarH / 2) && $scrolly < $titleH + $videoH + $composerBarH + ($composerH / 2)){
 			if (isHalf){
-				console.log('gogo3')
 				$('.composer_wrp_bar_bg').css({zIndex : 4})
 				$('.title_bar').animate({
 					marginTop : '-100%',
@@ -148,7 +145,7 @@ var $dd = function(){
 				isHalf = false;
 			}	
 		}
-		else if ($scrolly >= $titleH + $videoH + $composerBarH + ($composerH / 2) && $titleH + $videoH + $composerBarH + $composerH + ($composerH / 2)){
+		else if ($scrolly >= $titleH + $videoH + $composerBarH + ($composerH / 2) && $scrolly < $titleH + $videoH + $composerBarH + $composerH + ($composerBarH / 2)){
 			if(!isHalf){
 				$('.title_bar').animate({
 					marginTop : '0%',
@@ -168,6 +165,16 @@ var $dd = function(){
 				});
 				isHalf = true;
 			}	
+		}
+		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + ($ostBarH / 2) && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH){
+			if(isHalf){
+				$(".title_bar").css({display : 'none'})
+				$('.container').css({
+					position : 'absolute',display : 'none',
+					top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH
+				})
+				isHalf = false;
+			}
 		}
 	}else if ($('#body').hasClass('scroll_up')){
 		if($scrolly < $titleH / 2){
@@ -257,7 +264,7 @@ $(window).resize(function(){
 })
 // when? document ready
 $(document).ready(function(){
-
+	
 })
 // when? window load
 $(window).load(function(){
@@ -266,12 +273,6 @@ $(window).load(function(){
 	// GNB nav에 높이값 지정
 	$('nav div.gnb_container').css('height', $windowy)
 	console.log("windowy" + ":" + $windowy + " " +  "scrolly" + ":" +  $scrolly)
-	/*$bubble_width_1 = $('.bubble1_wrp_1').width();
-	$bubble_width_2 = $('.bubble1_wrp_2').width();
-	$bubble_width_3 = $('.bubble1_wrp_3').width();
-	$bubble_width_4 = $('.bubble1_wrp_4').width();
-	$bubble_width_5 = $('.bubble1_wrp_5').width();
-	console.log("bubble1" + ":" + $bubble_width_1 + "/" + "bubble2" + ":" + $bubble_width_2 + "/" +"bubble3" + ":" + $bubble_width_3 + "/" +"bubble4" + ":" + $bubble_width_4 + "/" +"bubble5" + ":" + $bubble_width_5 + "/")*/
 	
 	navBtnClick();
 	navMenuClick();
