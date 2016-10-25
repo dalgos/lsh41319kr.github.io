@@ -90,10 +90,12 @@ var $dd = function(){
 		var $composerBarH = $('.composer_wrp_bar_bg').height();
 		var $composerH = $('.composer_wrp_bg').height();
 		var $ostBarH = $('.ost_wrp_bg_bar').height();
+		var $anotherOstContainer = $('.another_ost_container').height();
+		var $bubbleImgWrpH = $('.bubble_img_wrp').height();
+		var $anotherOstH = $('.another_ost_container').height();
 	if($('#body').hasClass('scroll_down')){
 		if($scrolly > $titleH / 2 && $scrolly < $titleH + ($videoH / 2)){
 			if(isHalf){
-				//console.log('gogo1') // ============ Question 이 조건문에서는 원하는대로 한번만 실행되지만 아래 esle if 부분에서는 여러번 실행이됩니다. 왜그런걸까요? ===========
 				//if문의 조건을 다르게 해서 한번만 작동하게 하게 하였는데 이유는 대충 유추 할수있지만 명확히 모르겠습니다. 문제는 새로고침을 한다면 제대로 작동하지 않는 부분이 생깁니다.
 				// ============ Qusetion isHalf가 true라는 조건을 걸어 놓으면 =============================
 				$('.title_bar').animate({
@@ -168,15 +170,23 @@ var $dd = function(){
 		}
 		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + ($ostBarH / 2) && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH){
 			if(isHalf){
-				$(".title_bar").css({display : 'none'})
 				$('.container').css({
-					position : 'absolute',display : 'none',
+					position : 'absolute',
 					top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH
+				})
+				$('.container').animate({top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH + $bubbleImgWrpH + ($bubbleImgWrpH / 2)})
+				$('.title_bar').css({display : 'none'})
+				$('.container_inner').animate({width:'20%',borderRadius:'50%',height:'200%',opacity : 0},400,function(){
+					$('.bubble_img_wrp').animate({opacity : 1},400)
 				})
 				isHalf = false;
 			}
 		}
-	}else if ($('#body').hasClass('scroll_up')){
+		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + $ostBarH && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH + ($anotherOstH / 4 )) {
+			$('.bubble_img_wrp').css({position : 'fixed',top : '30%',marginLeft : '5%'})
+		}
+	}
+	else if ($('#body').hasClass('scroll_up')){
 		if($scrolly < $titleH / 2){
 			console.log('gogo')
 			if(!isHalf){
@@ -193,7 +203,7 @@ var $dd = function(){
 				isHalf = true;
 			}
 		}
-		else if ($scrolly <= $titleH + ($videoH / 2) && $scrolly >= $titleH / 2){
+		else if ($scrolly < $titleH + ($videoH / 2) && $scrolly >= $titleH / 2){
 			if(isHalf){
 				$('.title_bar').animate({
 					marginTop : "100%",
@@ -207,7 +217,7 @@ var $dd = function(){
 				isHalf = false;
 			}
 		}
-		else if ($scrolly <= $titleH + $videoH + ($composerBarH / 2) && $scrolly > $titleH + ($videoH / 2) ){
+		else if ($scrolly < $titleH + $videoH + ($composerBarH / 2) && $scrolly > $titleH + ($videoH / 2) ){
 			if (!isHalf){
 				$('.composer_wrp_bar_bg').css({zIndex : 1})
 				$('.title_bar').animate({marginTop : "0%",opacity : "1"},200)
@@ -219,7 +229,7 @@ var $dd = function(){
 				isHalf = true;
 			}
 		}
-		else if ($scrolly <= $titleH + $videoH + $composerBarH + ($composerH / 2) && $scrolly > $titleH + $videoH + ($composerBarH / 2)){
+		else if ($scrolly < $titleH + $videoH + $composerBarH + ($composerH / 2) && $scrolly > $titleH + $videoH + ($composerBarH / 2)){
 			if (isHalf){
 				$('.composer_wrp_bar_bg').css({zIndex : 1})
 				$('.title_bar').animate({marginTop : "100%",opacity : '0'})
@@ -228,23 +238,33 @@ var $dd = function(){
 				isHalf = false;
 			}
 		}
+		else if ($scrolly < $titleH + $videoH + $composerBarH + $composerH + ($ostBarH / 2) && $scrolly > $titleH + $videoH + $composerBarH + $composerH){
+			if (!isHalf){
+				$('.container').css({position : 'fixed', top : "50%",left : 0,right:0,marginLeft : "5%",width :"95%"})
+				$('.bubble_img_wrp').animate({opacity : 0},400)
+				$('.container_inner').animate({width:'70%',borderRadius:'0',height:'100%',opacity : 1})
+				$('.title_bar').css({display : 'block'}).animate({marginTop : "0%",opacity : "1"},200);
+				isHalf = true;
+			}
+		}
 	}
 }
+var $bubbleWidth = function(){
+
+}
 // when? scroll
-var scrollPosition = $(window).scrollTop(); //Question scrollPosition과 $scrolly은 똑같이 $(window).scrollTop();을 담았는데 왜 값이 차이가 날까요?
+var scrollPosition = $(window).scrollTop();/* 스크롤 전의 스크롤 값 */
 $(window).scroll(function(){
-	$scrolly = $(window).scrollTop();
+	$scrolly = $(window).scrollTop();/* 스크롤 시작하기 후의 스크롤 값 */
 	$windowy = $(window).height();
 	// GNB nav에 높이값 지정
 	$('nav div.gnb_container').css('height', $windowy)
 	//scroll UP & Down
 	if ($scrolly > scrollPosition){
-		console.log('scrollPosition' + scrollPosition + ' ' + '$scrolly' + $scrolly)
 		$('#body').addClass('scroll_down')
 		$('#body').removeClass('scroll_up')
 	}
 	else {
-		console.log('scrollPosition' + scrollPosition + ' ' + '$scrolly' + $scrolly)
 		$('#body').addClass('scroll_up')
 		$('#body').removeClass('scroll_down')
 	}
@@ -272,7 +292,7 @@ $(window).load(function(){
 	$windowy = $(window).height();
 	// GNB nav에 높이값 지정
 	$('nav div.gnb_container').css('height', $windowy)
-	console.log("windowy" + ":" + $windowy + " " +  "scrolly" + ":" +  $scrolly)
+	console.log("windowy" + ":" + $windowy + " " +  "scrolly" + ":" +  $scrolly + "/")
 	
 	navBtnClick();
 	navMenuClick();
