@@ -1,9 +1,10 @@
 /* ================= GNB Function ================= */
 //navBtnClick animation
 var navBtnClick = function(){
-	$('.btn_menu').click(function(){
-		$('.btn_menu').toggleClass("open")
-		if ($('.btn_menu').hasClass('open'))
+	var btnMenu = $('.btn_menu');
+	btnMenu.click(function(){
+		btnMenu.toggleClass("open")
+		if (btnMenu.hasClass('open'))
 		{
 			//background-color : #fff 에 opacity를 줘야 겹치는 효과가 생길까?
 			$('nav').stop().animate({marginLeft : '0%'},300)
@@ -32,49 +33,69 @@ var navBtnClick = function(){
 }
 //navMenuClickAnimation
 var navMenuClick = function () {
-	$('.home_btn').hover(function(){
-		$('.menu_img li:first-child').find('img').stop().animate({opacity : 1},150)
-		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150)
+	var homeBtn = $('.home_btn');
+	var videoBtn = $('.video_btn');
+	var composerBtn = $('.composer_btn');
+	var ostBtn = $('.ost_btn');
+	var animationBtn = $('.animation_btn');
+	homeBtn.hover(function(){
+		$('.menu_img li:first-child').find('img').stop().animate({opacity : 1},150);
+		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150);
 	})
-	$('.video_btn').hover(function(){
-		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 1},150)
-		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150)
+	homeBtn.on('click',function(){
+		$('html, body').stop().animate({scrollTop : 0},2800);	
+	});
+	videoBtn.hover(function(){
+		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 1},150);
+		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150);
+	});
+	videoBtn.on('click',function(){
+		$('html, body').stop().animate({scrollTop : $elementH[0]},700)
+	});
+	composerBtn.hover(function(){
+		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 1},150);
+		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150);
+	});
+	composerBtn.on('click',function(){
+		$('html, body').stop().animate({scrollTop : $elementH[0] + $elementH[1]},2800)
 	})
-	$('.composer_btn').hover(function(){
-		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 1},150)
-		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150)
+	ostBtn.hover(function(){
+		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 1},150);
+		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150);
 	})
-	$('.ost_btn').hover(function(){
-		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 1},150)
-		$('.menu_img li:last-child').find('img').stop().animate({opacity : 0},150)
+	ostBtn.on('click',function(){
+		$('html, body').stop().animate({scrollTop : $elementH[0] + $elementH[1] + $elementH[2] + $elementH[3]},2800)
 	})
-	$('.animation_btn').hover(function(){
-		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150)
-		$('.menu_img li:last-child').find('img').stop().animate({opacity : 1},150)
+	animationBtn.hover(function(){
+		$('.menu_img li:first-child').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(2)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(3)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:nth-child(4)').find('img').stop().animate({opacity : 0},150);
+		$('.menu_img li:last-child').find('img').stop().animate({opacity : 1},150);
+	})
+	animationBtn.on('click',function(){
+		$('html, body').stop().animate({scrollTop : $elementH[0] + $elementH[1] + $elementH[2] + $elementH[3] + $elementH[4] + $elementH[5]},2800)
 	})
 }
 /* ================= Appearance Animation ================= */
+var beHalf = true
 var $appearanceAnimation = function(){
-	var beHalf = true
 	if ($scrolly != 0){
 		if (beHalf)
-			{
-				$('.title_bar').animate({
+			{	
+				titlebar.animate({
 					marginTop : '0%',
 					opacity : '1'
 				},300)	
@@ -84,194 +105,205 @@ var $appearanceAnimation = function(){
 }
 /* ================= Title Function ================= */
 var isHalf = true;
-var $dd = function(){
-		var $titleH = $('.title_wrp_bar_bg').height();
-		var $videoH = $('.video_wrp_bg').height();
-		var $composerBarH = $('.composer_wrp_bar_bg').height();
-		var $composerH = $('.composer_wrp_bg').height();
-		var $ostBarH = $('.ost_wrp_bg_bar').height();
-		var $anotherOstContainer = $('.another_ost_container').height();
-		var $bubbleImgWrpH = $('.bubble_img_wrp').height();
-		var $anotherOstH = $('.another_ost_container').height();
-	if($('#body').hasClass('scroll_down')){
+var $slideDown = function(){
+	
+	if($body.hasClass('scroll_down')){
 		if($scrolly > $titleH / 2 && $scrolly < $titleH + ($videoH / 2)){
 			if(isHalf){
-				//if문의 조건을 다르게 해서 한번만 작동하게 하게 하였는데 이유는 대충 유추 할수있지만 명확히 모르겠습니다. 문제는 새로고침을 한다면 제대로 작동하지 않는 부분이 생깁니다.
-				// ============ Qusetion isHalf가 true라는 조건을 걸어 놓으면 =============================
-				$('.title_bar').animate({
-					marginTop : '-100%',
-					opacity : '0'
-				},200)// ====== .title_bar의 걸어 놓은 애니메이션이 작동하지 않습니다. isHalf에 대한 조건이 없으면 정상 작동 하고 이 상태를 cosole에서 애니메이션을 걸어도 정상 작동합니다.
-				$('.container').css({
-					zIndex : '3',
-					position : 'absolute',
-					top : '100%'
-				}).animate({top : '1250px'},200,function(){
-				$('.container_inner').load("video.html #video").css({bottom : 0,top : ''}).animate({height : '585px'},300)
+				titlebar.animate({ marginTop : '-100%', opacity : '0'},200);
+				container.css({ zIndex : '3', position : 'absolute',top : '100%'}).animate({top : '1250px'},200,function(){
+					containerInner.load("video.html #video").css({bottom : 0,top : ''}).animate({height : '585px'},300)
 				});
 				isHalf = false;
 			}	
 		}
 		else if ($scrolly >= $titleH + ($videoH / 2) && $scrolly < $titleH + $videoH + ($composerBarH / 2)){
 			if(!isHalf){
-				console.log('gogo2')
-				$('.title_bar').animate({
-					marginTop : '0%',
-					opacity : '1'
-				},200)
-				$('.container').css({
-				position : 'fixed',
-				top : '50%'
-				})
-				$('.container_inner').load("index.html .title_bar").animate({height : "165px"},function(){
-					$('.title_bar').children('h1').text('composer')
-					$('.title_bar').children('p').text('작곡가')	
+				container.css({ position : 'fixed', top : '50%'})
+				containerInner.load("index.html .title_bar").animate({height : "165px"},function(){
+					titlebar.children('h1').text('composer')
+					titlebar.children('p').text('작곡가')
+					titlebar.animate({marginTop : '0%', opacity : '1'},200);
 				});
 				isHalf = true;
 			}	
 		}
 		else if ($scrolly >= $titleH + $videoH + ($composerBarH / 2) && $scrolly < $titleH + $videoH + $composerBarH + ($composerH / 2)){
 			if (isHalf){
-				$('.composer_wrp_bar_bg').css({zIndex : 4})
-				$('.title_bar').animate({
-					marginTop : '-100%',
-					opacity : '0'
-				},200)
-				$('.container').css({
-					zIndex : '3',
-					position : 'absolute',
-					top : '270%'
-				}).animate({top : '2650px'},200,function(){
-				$('.container_inner').animate({width : '85%'},200,function(){$('.container_inner').animate({height : '585px'},300).css({bottom:0,top : ''})})});
-				$('.container_inner').load("composer.html #composer")
+				composerWrpBarBg.css({zIndex : 4})
+				titlebar.animate({marginTop : '-100%', opacity : '0'},200);
+				container.css({zIndex : '3', position : 'absolute', top : '270%'}).animate({top : '2650px'},200,function(){
+					containerInner.animate({width : '85%'},200,function(){
+						containerInner.animate({height : '585px'},300).css({bottom:0,top : ''})
+					})
+				});
+				containerInner.load("composer.html #composer")
 				isHalf = false;
 			}	
 		}
 		else if ($scrolly >= $titleH + $videoH + $composerBarH + ($composerH / 2) && $scrolly < $titleH + $videoH + $composerBarH + $composerH + ($composerBarH / 2)){
 			if(!isHalf){
-				$('.title_bar').animate({
-					marginTop : '0%',
-					opacity : '1'
-				},200)
-				$('.container').css({
-				position : 'fixed',
-				top : '50%',
-				left : 0,
-				right : 0,
-				marginLeft : '5%',
-				width : "95%"
-				});
-				$('.container_inner').load("index.html .title_bar").animate({width : "70%",height : "165px"},function(){
-					$('.title_bar').children('h1').text('Another OST')
-					$('.title_bar').children('p').text('하울의 움직이는 성 OST')	
+				container.css({position : 'fixed', top : '50%', left : 0, right : 0, marginLeft : '5%', width : "95%"});
+				containerInner.load("index.html .title_bar").animate({width : "70%",height : "165px"},function(){
+					titlebar.children('h1').text('Another OST')
+					titlebar.children('p').text('하울의 움직이는 성 OST')
+					titlebar.animate({marginTop : '0%', opacity : '1'},200)
 				});
 				isHalf = true;
 			}	
 		}
 		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + ($ostBarH / 2) && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH){
 			if(isHalf){
-				$('.container').css({
-					position : 'absolute',
-					top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH
-				})
-				$('.container').animate({top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH + $bubbleImgWrpH + ($bubbleImgWrpH / 2)})
-				$('.title_bar').css({display : 'none'})
-				$('.container_inner').animate({width:'20%',borderRadius:'50%',height:'200%',opacity : 0},400,function(){
-					$('.bubble_img_wrp').animate({opacity : 1},400)
-				})
+				container.css({position : 'absolute', top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH});
+				container.animate({top : $titleH + $videoH + $composerBarH + $composerH + $ostBarH + $bubbleImgWrpH + ($bubbleImgWrpH / 2)});
+				titlebar.css({display : 'none'});
+				containerInner.animate({width:'20%',borderRadius:'50%',height:'200%',opacity : 0},400,function(){
+					bubbleImgWrp.css({display : 'block',position : 'absolute' ,top : '10%',marginLeft:'0%'}).animate({opacity : 1},400)
+				});
 				isHalf = false;
 			}
 		}
 		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + $ostBarH && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH + ($anotherOstH / 4 )) {
-			$('.bubble_img_wrp').css({position : 'fixed',top : '30%',marginLeft : '5%'})
+			bubbleImgWrp.css({position : 'fixed',top : '30%',marginLeft : '5%'});
+			bubbleWidth();
+		}
+		else if ($scrolly > $titleH + $videoH + $composerBarH + $composerH + $ostBarH + ($anotherOstH / 4) && $scrolly > $titleH + $videoH + $composerBarH + $composerH + $ostBarH + ($anotherOstH / 3)){
+			bubbleImgWrp.css({position : 'absolute',top : $anotherOstH / 2.5,marginLeft : 0}).animate({top : $anotherOstH,opacity : 0},400,function(){
+				$('.bubble_wrp1').animate({opacity : 1},function(){
+					$('.animation_title').animate({opacity : 1},function(){
+						$('.bubble_contents_container').animate({opacity : 1})
+					})
+				})
+			})
 		}
 	}
-	else if ($('#body').hasClass('scroll_up')){
+	else if ($body.hasClass('scroll_up')){
 		if($scrolly < $titleH / 2){
-			console.log('gogo')
 			if(!isHalf){
-				$('.title_bar').animate({
-					marginTop : '0%',
-					opacity : '1'
-				},200)
-				$('.container').css({
-					zIndex : '5',
-					position : 'fixed',
-					top : '50%',
-				});
-				$(".container_inner").load("index.html .title_bar").css({top : 0,marginTop : '-82.5px'}).animate({height : '165px'},300)
+				container.css({zIndex : '5', position : 'fixed', top : '50%'});
+				containerInner.load("index.html .title_bar").css({top : 0,marginTop : '-82.5px'}).animate({height : '165px'},300,function(){
+					titlebar.animate({marginTop : '0%', opacity : '1'},200)
+				})
 				isHalf = true;
 			}
 		}
 		else if ($scrolly < $titleH + ($videoH / 2) && $scrolly >= $titleH / 2){
 			if(isHalf){
-				$('.title_bar').animate({
-					marginTop : "100%",
-					opacity : '0'
-				})
-				$('.container').css({
-					position : 'absolute',
-					top: "158%"
-				})
-				$('.container_inner').load("video.html #video").css({top: '',bottom:'0'}).animate({height : '585px'},300)
+				titlebar.animate({marginTop : "100%", opacity : '0'});
+				container.css({position : 'absolute', top: "158%"});
+				containerInner.load("video.html #video").css({top: '',bottom:'0'}).animate({height : '585px'},300)
 				isHalf = false;
 			}
 		}
 		else if ($scrolly < $titleH + $videoH + ($composerBarH / 2) && $scrolly > $titleH + ($videoH / 2) ){
 			if (!isHalf){
-				$('.composer_wrp_bar_bg').css({zIndex : 1})
-				$('.title_bar').animate({marginTop : "0%",opacity : "1"},200)
-				$('.container').css({position : 'fixed', top : "50%",left : 0,right:0,marginLeft : "5%",width :"95%"})
-				$('.container_inner').load("index.html .title_bar").css({top : '0',bottom: ''}).animate({width : "70%",height : "165px",marginTop : "-82.5px"},function(){
-					$('.title_bar').children('h1').text('composer')
-					$('.title_bar').children('p').text('작곡가')	
+				composerWrpBarBg.css({zIndex : 1})
+				container.css({position : 'fixed', top : "50%",left : 0,right:0,marginLeft : "5%",width :"95%"})
+				containerInner.load("index.html .title_bar").css({top : '0',bottom: ''}).animate({width : "70%",height : "165px",marginTop : "-82.5px"},function(){
+					titlebar.children('h1').text('composer')
+					titlebar.children('p').text('작곡가')
+					titlebar.animate({marginTop : "0%",opacity : "1"},200)
 				});
 				isHalf = true;
 			}
 		}
 		else if ($scrolly < $titleH + $videoH + $composerBarH + ($composerH / 2) && $scrolly > $titleH + $videoH + ($composerBarH / 2)){
 			if (isHalf){
-				$('.composer_wrp_bar_bg').css({zIndex : 1})
-				$('.title_bar').animate({marginTop : "100%",opacity : '0'})
-				$('.container').css({position : 'absolute',top : '2650px'})
-				$('.container_inner').animate({width : '85%'},200,function(){$('.container_inner').animate({height : '585px'},300)}).load("composer.html #composer")
+				composerWrpBarBg.css({zIndex : 1})
+				titlebar.animate({marginTop : "100%",opacity : '0'})
+				container.css({position : 'absolute',top : '2650px'})
+				containerInner.animate({width : '85%'},200,function(){containerInner.animate({height : '585px'},300)}).load("composer.html #composer")
 				isHalf = false;
 			}
 		}
 		else if ($scrolly < $titleH + $videoH + $composerBarH + $composerH + ($ostBarH / 2) && $scrolly > $titleH + $videoH + $composerBarH + $composerH){
 			if (!isHalf){
-				$('.container').css({position : 'fixed', top : "50%",left : 0,right:0,marginLeft : "5%",width :"95%"})
-				$('.bubble_img_wrp').animate({opacity : 0},400)
-				$('.container_inner').animate({width:'70%',borderRadius:'0',height:'100%',opacity : 1})
-				$('.title_bar').css({display : 'block'}).animate({marginTop : "0%",opacity : "1"},200);
+				container.css({position : 'fixed', top : "50%",left : 0,right:0,marginLeft : "5%",width :"95%"})
+				bubbleImgWrp.animate({opacity : 0},400).css('display','none')
+				containerInner.animate({width:'70%',borderRadius:'0',height:'100%',opacity : 1})
+				titlebar.css({display : 'block'}).animate({marginTop : "0%",opacity : "1"},200);
 				isHalf = true;
 			}
 		}
+		else if ($scrolly >= $titleH + $videoH + $composerBarH + $composerH + $ostBarH && $scrolly < $titleH + $videoH + $composerBarH + $composerH + $ostBarH + ($anotherOstH / 4 )){
+			bubbleWidth();
+		}
 	}
 }
-var $bubbleWidth = function(){
-
+/* bubbleWidth bubble의 width가 정확히 같은 값으로 줄고 늘지 않는다 */
+var isFalse = false;
+function bubbleWidth () {
+	var $bubbleImg = $('.bubble_img').children('img');
+	var $bubbleImgWidth = $bubbleImg.width();
+	if($scrollAssing > 10){
+		if($body.hasClass('scroll_down')){
+			if(isFalse){
+				return false;
+			}
+			isFalse = true;
+			$bubbleImg.animate({width : '-=12%',opacity : '-=.1'},200,function(){
+				isFalse = false;
+			})	
+		}
+	}
+	else if($scrollAssing * -1 > 10){
+		if ($body.hasClass('scroll_up')){
+			if(isFalse){
+				return false;
+			}	
+			isFalse = true;
+			$bubbleImg.animate({width : '+=12%',opacity : '+=.1'},200,function(){
+				isFalse = false;
+			})	
+		}
+	}
 }
+function musicplay () {
+	var bubbleTable = $('.bubble_table')
+	bubbleTable.mouseenter(function(){
+		audio.play();
+	})
+	bubbleTable.mouseout(function(){
+		audio.pause();
+	})
+}
+var scrollPosition = $(window).scrollTop(); /* 스크롤 전의 스크롤 값 */
 // when? scroll
-var scrollPosition = $(window).scrollTop();/* 스크롤 전의 스크롤 값 */
 $(window).scroll(function(){
-	$scrolly = $(window).scrollTop();/* 스크롤 시작하기 후의 스크롤 값 */
+	$scrolly = $(window).scrollTop();/* 스크롤 시작한 후의 스크롤 값 */
 	$windowy = $(window).height();
-	// GNB nav에 높이값 지정
-	$('nav div.gnb_container').css('height', $windowy)
-	//scroll UP & Down
+	 
+	titlebar = $('.title_bar')
+	container = $('.container')
+	containerInner = $('.container_inner')
+	composerWrpBarBg = $('.composer_wrp_bar_bg')
+	bubbleImgWrp = $('.bubble_img_wrp')
+	
+	$titleH = $('.title_wrp_bar_bg').height();
+	$videoH = $('.video_wrp_bg').height();
+	$composerBarH = $('.composer_wrp_bar_bg').height();
+	$composerH = $('.composer_wrp_bg').height();
+	$ostBarH = $('.ost_wrp_bg_bar').height();
+	$bubbleImgWrpH = $('.bubble_img_wrp').height();
+	$anotherOstH = $('.another_ost_container').height();
+	$animationContainerH = $('.animation_container').height();
+	$elementH = [$titleH, $videoH, $composerBarH, $composerH, $ostBarH, $anotherOstH, $animationContainerH];
+	/* scroll UP & Down */
+	$scrollAssing = $scrolly - scrollPosition
+	$body = $('#body');
 	if ($scrolly > scrollPosition){
-		$('#body').addClass('scroll_down')
-		$('#body').removeClass('scroll_up')
+		$body.addClass('scroll_down')
+		$body.removeClass('scroll_up')
 	}
 	else {
-		$('#body').addClass('scroll_up')
-		$('#body').removeClass('scroll_down')
+		$body.addClass('scroll_up')
+		$body.removeClass('scroll_down')
 	}
 	scrollPosition = $scrolly;
 	//scroll UP & Down End
-	
-	$dd();
+	// GNB nav에 높이값 지정
+	$('nav div.gnb_container').css('height', $windowy)
+	$slideDown();
 	$appearanceAnimation();
 })
 // when? resize
@@ -284,7 +316,8 @@ $(window).resize(function(){
 })
 // when? document ready
 $(document).ready(function(){
-	
+	audio = document.getElementsByTagName("audio")[0];
+	musicplay();
 })
 // when? window load
 $(window).load(function(){
@@ -292,9 +325,7 @@ $(window).load(function(){
 	$windowy = $(window).height();
 	// GNB nav에 높이값 지정
 	$('nav div.gnb_container').css('height', $windowy)
-	console.log("windowy" + ":" + $windowy + " " +  "scrolly" + ":" +  $scrolly + "/")
 	
 	navBtnClick();
 	navMenuClick();
-	$appearanceAnimation();
 })
