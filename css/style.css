@@ -199,14 +199,23 @@ article.another_ost_container > div.bubble_contents_container > div.bubble_4 {to
 /* bubble5 */
 article.another_ost_container > div.bubble_contents_container > div.bubble_5 {top: 800px;left: 30%;}
 /* animation list */
-
-article.animation_container {text-align: center;}
+article.animation_container {position: relative;text-align: center;}
+article.animation_container > div.ro_title1_wrp {position: absolute;right: 3%;top: 20%;z-index: 5;width: 500px;height: 200px;overflow: hidden;}
+article.animation_container > div.ro_title1_wrp > ul.ro_title_ul {width: 100%;height: 100%;} /* margin-top 으로 돌린다 */
+article.animation_container > div.ro_title1_wrp > ul.ro_title_ul > li {text-align: center;font-size: 6rem;color: #f7659e;font-weight: bold;}
+article.animation_container > div.ro_title2_wrp {position: absolute;left: 3%;top: 50%;z-index: 5;width: 500px;height: 200px;overflow: hidden;}
+article.animation_container > div.ro_title2_wrp > ul.ro_title_ul {width: 100%;height: 100%;margin-top: -200px;} /* margin-top 으로 돌린다 */
+article.animation_container > div.ro_title2_wrp > ul.ro_title_ul > li {text-align: center;font-size: 6rem;color: #f7659e;font-weight: bold;}
+article.animation_container > div.leadRole {position: absolute;bottom: 10%;right: 5%;font-size: 3rem;font-weight: bold;z-index: 5;}
+article.animation_container > div.leadRole > span {color: #fc91bb;}
 article.animation_container > div.animation_wrp {display: inline-block;width: 60%;}
 article.animation_container > div.animation_wrp > ul {}
-article.animation_container > div.animation_wrp > ul > li.animation_list {position: relative;display: block;float: left;width: 50%;}
-article.animation_container > div.animation_wrp > ul > li.animation_list > a {}
+article.animation_container > div.animation_wrp > ul > li.animation_list {position: relative;display: block;float: left;width: 50%;height: 100%;margin-top: -2px;}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a {display: inline-block;width: 100%; height: 100%;}
 article.animation_container > div.animation_wrp > ul > li.animation_list > a > img {width: 100%;}
-article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color:rgba(114,117,127,0.2);}
-article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > h3 {font-size: 1.2em}
-article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > h2 {font-size: 1.5em;}
-article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > span {font-size: 1em;}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp {position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > div.hover_vr {margin-top: 50%;color: #fff;}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > div.hover_vr > h3 {font-size: 1em}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > div.hover_vr > div.h2_wrp {margin: 3px 0 60% 0}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > div.hover_vr > div.h2_wrp > h2 {font-size: 1.5em;}
+article.animation_container > div.animation_wrp > ul > li.animation_list > a > div.hover_wrp > div.hover_vr > span {font-size: 1em;}
