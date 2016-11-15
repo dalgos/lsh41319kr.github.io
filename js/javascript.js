@@ -11,6 +11,10 @@ function rotateS (marN, top1N, top2N, bar1Ro, bar2Ro) {
 var $navBtnClick = function(){
 	var btnMenu = $('.btn_menu');
 	btnMenu.click(function(){
+    /*TODO
+    문자열을 감싸는 따옴표 사용시 큰따옴표/작은 따옴표로 통일하여 사용하는 편이 좋습니다.
+    되도록 작은 따옴표를 사용할 것을 추천합니다. 'string'.
+    */
 		btnMenu.toggleClass("open")
 		if (btnMenu.hasClass('open'))
 		{
@@ -47,6 +51,9 @@ var $navMenuClick = function () {
 	var composerBtn = $('.composer_btn');
 	var ostBtn = $('.ost_btn');
 	var animationBtn = $('.animation_btn');
+  /*TODO
+  여러개의 이벤트를 바인딩하고자 할 경우 되도록 on 메서드를 사용할 것을 권장합니다.
+  */
 	homeBtn.hover(function(){
 		navHov(1, 0, 0, 0, 0);
 	})
@@ -81,6 +88,7 @@ var $navMenuClick = function () {
 /* ================= Appearance Animation ================= */
 var beHalf = true
 var $appearanceAnimation = function(){
+  //TODO if...else 조건문 사용 시 중괄호는 조건문과 같은 줄에 작성하는 것을 추천합니다. if () {}
 	if ($scrolly != 0){
 		if (beHalf)
 			{	
